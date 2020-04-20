@@ -28,6 +28,8 @@
 #include "lipstickqmlpath.h"
 #include "bluetoothagent.h"
 
+#include <displayblanking.h>
+
 #define AGENT_CAPABILITY        "KeyboardDisplay"
 
 BluetoothAgent::BluetoothAgent(QObject *parent) : QObject(parent), window(0)
@@ -139,10 +141,12 @@ void BluetoothAgent::setWindowVisible(bool visible)
 
         if (!window->isVisible()) {
             window->show();
+            displayBlanking->setPreventBlanking(true);
             emit windowVisibleChanged();
         }
     } else if (window != 0 && window->isVisible()) {
         window->hide();
+        displayBlanking->setPreventBlanking(false);
         emit windowVisibleChanged();
     }
 }

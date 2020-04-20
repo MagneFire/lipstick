@@ -26,6 +26,8 @@
 #include <QDBusMessage>
 #include "lipstickglobal.h"
 
+#include <displayblanking.h>
+
 class HomeWindow;
 
 class LIPSTICK_EXPORT BluetoothAgent : public QObject, protected QDBusContext
@@ -77,6 +79,7 @@ signals:
     void passkeyChanged();
 
 private:
+    DisplayBlanking *displayBlanking;
     QString mPath;
     HomeWindow *window;
     State state;
