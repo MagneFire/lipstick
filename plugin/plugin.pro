@@ -26,6 +26,8 @@ OTHER_FILES += \
 
 QMAKE_CXXFLAGS += \
     -Werror \
+    -Wno-deprecated-declarations \
+    -Wno-deprecated-copy \
     -g \
     -std=c++0x \
     -fPIC \

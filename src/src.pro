@@ -167,6 +167,8 @@ QT += dbus xml qml quick sql gui gui-private sensors
 
 QMAKE_CXXFLAGS += \
     -Werror \
+    -Wno-deprecated-declarations \
+    -Wno-deprecated-copy \
     -Wno-error=format-security \
     -g \
     -std=c++0x \
